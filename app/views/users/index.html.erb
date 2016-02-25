@@ -40,10 +40,12 @@
 
     </div>
     <hr>
-    <h3>Your Conversations</h3>
+    <h4>Your Conversations</h4>
 
     <div style="height: 400px; overflow-y: auto;">
-      <ul class="media-list">
+      <input type='text' id='txtList' class="form-control" placeholder="Search Your Conversation.." onkeyup="filter(this)" />
+      <div style="clear: both;height: 15px;"></div>
+      <ul class="media-list" id="fromList">
         <% @fetched_users.each do |user| %>
             <% if user.conversations.any? %>
               <% user.conversations.each do |conversation| %>
