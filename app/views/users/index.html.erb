@@ -1,10 +1,12 @@
 <div class="row">
   <!-- Not implemented on tutorial -->
   <div class="col-md-4" style="padding-top: 2%;">
+    <% if  current_user.roles != "Customer" %>
+
     <div style="height: 300px; overflow-y: auto;">
       <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Registered Users</div>
+        <div class="panel-heading">Linked Customers</div>
 
         <!-- Table -->
         <table class="table">
@@ -16,7 +18,7 @@
           </tr>
           </thead>
           <tbody>
-          <% @users.each_with_index do |user, index| %>
+          <% @fetched_users.each_with_index do |user, index| %>
               <tr>
                 <td><%= index +=1 %></td>
                 <td><%= user.name %></td>
@@ -36,29 +38,31 @@
     <h3>Your Conversations</h3>
 
     <div style="height: 400px; overflow-y: auto;">
-      <% if @conversations.any? %>
-          <ul class="media-list">
-            <% @conversations.each do |conversation| %>
+      <ul class="media-list">
+        <% @fetched_users.each do |user| %>
+            <% if user.conversations.any? %>
+              <% user.conversations.each do |conversation| %>
                 <li class="media">
                   <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
                   <div class="media-body">
                     <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
-                        <h4 class="media-heading"><%= conversation_interlocutor(conversation).name %></h4>
-                        <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
+                    <h4 class="media-heading"><%= conversation_interlocutor(conversation).name %></h4>
+                    <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
                   </div>
                 </li>
-
             <% end %>
-          </ul>
-      <% else %>
-          <p>You have no conversations. Click send message with any user to create one.</p>
-      <% end %>
+            <% else %>
+                <!--<p>You have no conversations. Click send message with any user to create one.</p>-->
+            <% end %>
+        <% end %>
+            </ul>
     </div>
 
+  <% else %>
+    <div style="height: 770px; overflow-y: auto;">
+    </div>
+        Display something
+  <% end %>
+
   </div>
-
-  <div class="col-md-4">
-
-  </div>
-
 </div>
