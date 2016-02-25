@@ -4,9 +4,11 @@
 
     <h1 class="font_15"><%= @reciever.name %>
       <%= link_to new_ticket_path(:requester_id => @reciever.id), class: "chat_ticket" do %>
-          SR <%= image_tag('pen-checkbox-128.png', style: "width: 10%;margin-top: -7px;") %>
+          SR <%= image_tag('pen-checkbox-128.png', style: "width: 8%;margin-top: -7px;") %>
       <% end %>
-      <%= mail_to "durgesh.tripathi2@gmail.com", raw(image_tag("Mail+Icon.png", style: 'width: 12%;')) %>
+      <% if current_user.roles != "Customer" %>
+          <%= mail_to "durgesh.tripathi2@gmail.com", raw(image_tag("Mail+Icon.png", style: 'width: 12%;')) %>
+      <% end %>
     </h1>
   </div>
   <div class="chatboxoptions">
