@@ -10,8 +10,17 @@
     </h1>
   </div>
   <div class="chatboxoptions">
-    <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
-    &nbsp;&nbsp;
+    <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>&nbsp;
+    <div id="templates_dropdown" class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <% @templates.each {|template| %>
+            <li><a href="#" class="temp-title" id="template-<%=template.id%>" data="<%= template.description %>"><%= template.title %></a></li>
+        <% } %>
+      </ul>
+    </div>
+    &nbsp;
     <%= link_to "<i class='fa  fa-times'></i> ".html_safe, "#", class: "closeChat", "data-cid" => @conversation.id %>
   </div>
 </div>
@@ -27,3 +36,11 @@
 </div>
 
 <%= subscribe_to conversation_path(@conversation) %>
+
+<script>
+  $(function() {
+    $(".temp-title").click(function(e) {
+       $("#message_body").val($(this).attr('data'));
+    });
+  });
+</script>
