@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730185251) do
+ActiveRecord::Schema.define(version: 20160225063652) do
+
+  create_table "attachments", force: true do |t|
+    t.text     "description"
+    t.integer  "ticket_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attachments", ["ticket_id"], name: "index_attachments_on_ticket_id"
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conversations", force: true do |t|
     t.integer  "sender_id"
@@ -33,6 +54,20 @@ ActiveRecord::Schema.define(version: 20140730185251) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "tickets", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "status"
+    t.integer  "priority"
+    t.integer  "requester_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tickets", ["requester_id"], name: "index_tickets_on_requester_id"
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
