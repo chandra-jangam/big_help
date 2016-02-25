@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   resources :customers
+  resources :comments
+
+  resources :attachments
+
+  resources :tickets
 
   devise_for :users
 
