@@ -95,6 +95,23 @@ body{
     display: none;
 }
 
+.width_40{
+    width: 40% !important;
+}
+
+.resize{
+    resize:none;
+}
+.font_15{
+    font-size: 15px !important;
+}
+.chat_ticket{
+    padding: 3px;
+    color: white !important;
+    font-weight: bold;
+    font-size: 13px !important;
+}
+
 .chatboxhead {
     background: #666;
     color: white;
