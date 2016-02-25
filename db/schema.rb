@@ -39,10 +39,26 @@ ActiveRecord::Schema.define(version: 20160225063652) do
     t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id"
   add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id"
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "group_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", force: true do |t|
     t.text     "body"
@@ -83,6 +99,9 @@ ActiveRecord::Schema.define(version: 20160225063652) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "user_id"
+    t.integer  "cust_id"
+    t.text     "roles"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
