@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225063652) do
+ActiveRecord::Schema.define(version: 20160225101323) do
 
   create_table "attachments", force: true do |t|
     t.text     "description"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20160225063652) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.integer  "csrg_id"
   end
 
   create_table "group_users", force: true do |t|
