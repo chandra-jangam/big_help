@@ -106,11 +106,19 @@ body{
     font-size: 15px !important;
 }
 .chat_ticket{
-    padding: 3px;
-    color: white !important;
-    font-weight: bold;
-    font-size: 13px !important;
+    background: white;
+    padding: 4px;
+    border-radius: 5px;
 }
+
+.brand{margin-left: -10px !important;margin-top: -5px !important;}
+
+.sr{
+    background-color: white !important;
+    border-color: white !important;
+    color: black !important;
+}
+.chatboxtitle{width: 85% !important;}
 
 .chatboxhead {
     background: #666;
