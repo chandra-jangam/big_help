@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20160225101323) do
-
   create_table "attachments", force: true do |t|
     t.text     "description"
     t.integer  "ticket_id"
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160225101323) do
     t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "attachments", ["ticket_id"], name: "index_attachments_on_ticket_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160225101323) do
     t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "conversations", force: true do |t|
