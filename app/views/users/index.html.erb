@@ -1,7 +1,8 @@
-<% if  current_user.roles != "Customer" %>
 <div class="row">
   <!-- Not implemented on tutorial -->
   <div class="col-md-4" style="padding-top: 2%;">
+    <% if  current_user.roles != "Customer" %>
+
     <div style="height: 300px; overflow-y: auto;">
       <div class="panel panel-default">
         <!-- Default panel contents -->
@@ -22,10 +23,14 @@
 
                 <td>
                   <%= link_to "#{user.name}", "#", class: "btn btn-success btn-xs start-conversation",
-                              "data-sid" => current_user.id,  "data-rip" => user.id , "style" => "width:300px"%>
+                              "data-sid" => current_user.id,  "data-rip" => user.id , "style" => "width:275px"%>
+                  <% if index == 2 %>
+                      <img src="assets/surplus extension for googleplus gplus plug-in.png" width="15" height="15" alt="Pending Query">
+                  <% end %>
 
                 </td>
-                <td><img src="assets/emailicon.png" alt="Pending Query"></td>
+                <td>
+                  </td>
               </tr>
           <% end %>
 
@@ -57,10 +62,12 @@
         <% end %>
             </ul>
     </div>
+
+  <% else %>
+    <div style="height: 770px; overflow-y: auto;">
+    </div>
+        Display something
+  <% end %>
+
   </div>
 </div>
-<% else %>
-    <div class="customer_page">
-      <div id="uhchat" style="bottom: -320px;"></div>
-    </div>
-<% end %>
