@@ -1,0 +1,7 @@
+User.create!(name: "Mukesh Singh Rathaur", email: "mukesh.rathaur@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
+User.create!(name: "Ghanshyam Rathod", email: "ghanshyam.rathod@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
+User.create!(name: "Abhinav Gupta", email: "abhinav.gupta@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
+User.create!(name: "Chandra Jangam", email: "chandra.jangam@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
+User.create!(name: "Chandra Mouli", email: "chandramouli.gollapalli@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
+User.create!(name: "Durgesh Tripathi", email: "durgesh.tripathi@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
+User.create!(name: "Arivarsan C", email: "arivarasan.chandrasekaran@oracle.com", password: "Srm_Ora", password_confirmation: "Srm_Ora")
