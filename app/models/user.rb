@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :comments, :through => :tickets
 
-  belong_to :group_user
-  belong_to :customer
+  belongs_to :group_user
+  belongs_to :customer
 
   after_create :create_default_conversation
 
