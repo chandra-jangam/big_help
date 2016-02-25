@@ -6,26 +6,27 @@
     <div style="height: 300px; overflow-y: auto;">
       <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Linked Customers</div>
+        <div class="panel-heading" style="font-weight: bold;">Customer Service Group-1</div>
 
         <!-- Table -->
         <table class="table">
           <thead>
           <tr>
-            <th>#</th>
-            <th>Name</th>
+            <th align="center">Customer Name</th>
             <th></th>
           </tr>
           </thead>
           <tbody>
           <% @fetched_users.each_with_index do |user, index| %>
               <tr>
-                <td><%= index +=1 %></td>
-                <td><%= user.name %></td>
+
+
                 <td>
-                  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                              "data-sid" => current_user.id, "data-rip" => user.id %>
+                  <%= link_to "#{user.name}", "#", class: "btn btn-success btn-xs start-conversation",
+                              "data-sid" => current_user.id,  "data-rip" => user.id , "style" => "width:300px"%>
+
                 </td>
+                <td><img src="assets/emailicon.png" alt="Pending Query"></td>
               </tr>
           <% end %>
 
