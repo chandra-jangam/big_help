@@ -60,6 +60,8 @@
 </div>
 <% else %>
     <div class="customer_page">
-      <div id="uhchat" style="bottom: -320px;"></div>
+      <%= link_to "Send Message", "#", class: "uhchat start-conversation",
+                    "data-sid" => current_user.id, "data-rip" => @csr_user.id %>
     </div>
+
 <% end %>
