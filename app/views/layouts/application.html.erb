@@ -29,7 +29,13 @@
 
 <%= render 'layouts/nav' %>
 
-<div class="container <%= user_signed_in? ? "internal_body" : "" %>" style="padding: 2%">
+<% if (params[:controller] == "csrs" && params[:action] == "new") || (params[:controller] == "customers" && params[:action] == "new")  %>
+<% class_name = ""%>
+<% else %>
+    <% class_name = "internal_body"%>
+<% end %>
+
+<div class="container <%= user_signed_in? ? class_name : "" %>" style="padding: 2%">
   <% if alert %>
       <div class="alert alert-danger" role="alert"><%= alert %></div>
   <% end %>
