@@ -72,7 +72,7 @@ body{
     width: 320px;
     height: 305px;
     display: block;
-    background: url("/assets/Chat.png") no-repeat;
+    background: url("/assets/image001.png") no-repeat;
     text-align: center;
     padding-top: 109px;
     position: fixed;
@@ -81,7 +81,23 @@ body{
     z-index: 99999999999999;
     box-sizing: content-box;
     background-size: 100px 100px;
-    margin-right: -24%;
+    /*margin-right: -24%;*/
+}
+
+.uhchat {
+    /*width: 320px;*/
+    height: 305px;
+    display: block;
+    background: url("/assets/image001.png") no-repeat;
+    text-align: center;
+    padding-top: 109px;
+    position: fixed;
+    bottom: -333px;
+    right: 300px;
+    /*z-index: 99999999999999;*/
+    box-sizing: content-box;
+    background-size: 82px 85px;
+    /*margin-right: -24%;*/
 }
 
 

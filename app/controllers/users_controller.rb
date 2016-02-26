@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     elsif current_user.roles == 'CSR'
       @fetched_users = User.where(:csrg => current_user.csrg)
     else
+      @csr_user = User.where(:csrg => current_user.csrg, :roles => "CSR").first
       @fetched_users = []
     end
 

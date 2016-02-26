@@ -65,11 +65,14 @@
             </ul>
     </div>
 
-  <% else %>
-    <div style="height: 770px; overflow-y: auto;">
-    </div>
-        Display something
-  <% end %>
+    <% else %>
+        <div class="customer_page">
+          <%= link_to "Send Message", "#", class: "uhchat start-conversation",
+                      "data-sid" => current_user.id, "data-rip" => @csr_user.id %>
+        </div>
+
+    <% end %>
 
   </div>
 </div>
+
